@@ -10,8 +10,8 @@ router.get("/", async (req, res) => {
 
 router.post("/api/burgers", async (req, res) => {
   const data = await burgers.create(
-    ["burger", "devoured"],
-    [req.body.burger, req.body.devoured]
+    ["burgers", "devoured"],
+    [req.body.burgers, req.body.devoured]
   );
   res.json({ id: data.insertId });
 });
