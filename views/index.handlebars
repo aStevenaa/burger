@@ -10,7 +10,7 @@
             <ul class="list-group">
                 {{#each burgers}}
                 {{#unless devoured}}
-                <li class="list-group-item text-white bg-dark">
+                <li class="list-group-item ">
                     {{burger_name}}
 
                     <button class="eatIt btn btn-info float-right" data-id="{{id}}" data-eaten="{{devoured}}">
@@ -22,12 +22,12 @@
             </ul>
         </div>
         <div class="col-6">
-            <h3 class="text-center"><u>Burgers Eaten</u></h3>
+            <h3 class="text-center">Burgers Eaten</h3>
             <br>
             <ul class="list-group">
                 {{#each burgers}}
                 {{#if devoured}}
-                <li class="list-group-item text-white bg-dark">
+                <li class="list-group-item ">
                     {{burger_name}}
 
 
@@ -38,10 +38,6 @@
         </div>
     </div>
 </div>
-
-
-
-
 <div class="container">
     <div class="row text-center">
         <div class="col text-center">
