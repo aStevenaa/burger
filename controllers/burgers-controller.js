@@ -1,17 +1,17 @@
 const express = require("express");
 const router = express.Router();
-const burgers = require("../models/burger");
+const burger = require("../models/burger");
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", async (req, res) => {
-  const data = await burgers.all();
+  const data = await burger.all();
   res.render("index", { burgers: data });
 });
 
 router.post("/api/burgers", async (req, res) => {
-  const data = await burgers.create(
-    ["burgers", "devoured"],
-    [req.body.burgers, req.body.devoured]
+  const data = await burger.create(
+    ["burger_name", "devoured"],
+    [req.body.burger_name, req.body.devoured]
   );
   res.json({ id: data.insertId });
 });
@@ -19,15 +19,20 @@ router.post("/api/burgers", async (req, res) => {
 router.put("/api/burgers/:id", async (req, res) => {
   let condition = `id = ${req.params.id}`;
   console.log("condition", condition);
-  const data = await burgers.update({ devoured: req.body.devoured }, condition);
+
+  const data = await burger.update({ devoured: 1 }, condition);
+
   if (data.changedRows === 0) {
     res.status(404).send();
   }
   res.status(200).end();
 });
+
 router.delete("/api/burgers/:id", async (req, res) => {
   let condition = `id = ${req.params.id}`;
-  const data = await burgers.delete(condition);
+
+  const data = await burger.delete(condition);
+
   if (data.affectedRows === 0) {
     res.status(404).end();
   }
