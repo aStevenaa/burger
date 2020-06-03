@@ -20,10 +20,10 @@ const burger = {
     return result;
   },
 
-  delete: async (condition) => {
-    const result = await orm.delete("burger", condition);
+  // delete: async (condition) => {
+  //   const result = await orm.delete("burger", condition);
 
-    return result;
-  },
+  //   return result;
+  // },
 };
 module.exports = burger;

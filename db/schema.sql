@@ -12,4 +12,3 @@ burger_name VARCHAR
 devoured BOOlEAN ,
 PRIMARY KEY
     (id)
-);
